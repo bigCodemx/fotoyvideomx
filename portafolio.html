@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio - Foto&VideoMX</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Foto&VideoMX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="portafolio.html">Portafolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="paquetes.html">Paquetes</a></li>
+          <li class="nav-item"><a class="nav-link" href="reseñas.html">Reseñas</a></li>
+          <li class="nav-item"><a class="nav-link" href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="acerca-de.html">Acerca de</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5" style="margin-top:90px;">
+    <!-- Bloque de protección de imágenes -->
+    <script>
+      // Evitar clic derecho sobre imágenes
+      document.addEventListener('contextmenu', function(e) {
+        if(e.target.tagName === 'IMG' && e.target.classList.contains('gallery-thumb')) {
+          e.preventDefault();
+          mostrarAlertaDerechos();
+        }
+      });
+      // Evitar arrastrar imágenes
+      document.addEventListener('dragstart', function(e) {
+        if(e.target.tagName === 'IMG' && e.target.classList.contains('gallery-thumb')) {
+          e.preventDefault();
+          mostrarAlertaDerechos();
+        }
+      });
+      // Evitar teclas de captura de pantalla
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'PrintScreen' || (e.ctrlKey && e.key.toLowerCase() === 'p')) {
+          e.preventDefault();
+          mostrarAlertaDerechos();
+        }
+      });
+      // Mostrar alerta personalizada
+      function mostrarAlertaDerechos() {
+        if (!document.getElementById('alertDerechos')) {
+          const alerta = document.createElement('div');
+          alerta.id = 'alertDerechos';
+          alerta.innerText = 'Derechos reservados';
+          alerta.style.position = 'fixed';
+          alerta.style.top = '20px';
+          alerta.style.left = '50%';
+          alerta.style.transform = 'translateX(-50%)';
+          alerta.style.background = '#222';
+          alerta.style.color = '#fff';
+          alerta.style.padding = '12px 32px';
+          alerta.style.borderRadius = '8px';
+          alerta.style.zIndex = '9999';
+          alerta.style.fontWeight = 'bold';
+          document.body.appendChild(alerta);
+          setTimeout(() => {
+            alerta.remove();
+          }, 2000);
+        }
+      }
+    </script>
+    <h2 class="mb-4 text-center fw-bold">Portafolio</h2>
+    <!-- Categorías -->
+    <ul class="nav nav-pills justify-content-center mb-4" id="portfolioTabs">
+      <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#bodas">Bodas</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#xv">XV años</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#bautizos">Bautizos</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#presentaciones">Presentaciones 3 años</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#comuniones">Primeras Comuniones</a></li>
+    </ul>
+    <div class="tab-content">
+      <!-- Galería Bodas -->
+      <div class="tab-pane fade show active" id="bodas">
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda1.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 1" data-gallery="bodas" data-index="0"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda2.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 2" data-gallery="bodas" data-index="1"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda3.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 3" data-gallery="bodas" data-index="2"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda4.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 4" data-gallery="bodas" data-index="3"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda5.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 5" data-gallery="bodas" data-index="4"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda6.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 6" data-gallery="bodas" data-index="5"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda7.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 7" data-gallery="bodas" data-index="6"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda8.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 8" data-gallery="bodas" data-index="7"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda9.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 9" data-gallery="bodas" data-index="8"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda10.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 10" data-gallery="bodas" data-index="9"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda11.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 11" data-gallery="bodas" data-index="10"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda12.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 12" data-gallery="bodas" data-index="11"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda13.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 13" data-gallery="bodas" data-index="12"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda14.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 14" data-gallery="bodas" data-index="13"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda15.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 15" data-gallery="bodas" data-index="14"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda16.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 16" data-gallery="bodas" data-index="15"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda17.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 17" data-gallery="bodas" data-index="16"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/boda/boda18.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Boda 18" data-gallery="bodas" data-index="17"></div>
+          
+        </div>
+      </div>
+      <!-- Galería XV años -->
+      <div class="tab-pane fade" id="xv">
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv1.JPG" class="img-fluid rounded shadow gallery-thumb" alt="XV 1" data-gallery="xv" data-index="0"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv2.JPG" class="img-fluid rounded shadow gallery-thumb" alt="XV 2" data-gallery="xv" data-index="1"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv3.jpg" class="img-fluid rounded shadow gallery-thumb" alt="XV 3" data-gallery="xv" data-index="2"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv4.jpg" class="img-fluid rounded shadow gallery-thumb" alt="XV 4" data-gallery="xv" data-index="3"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv5.jpg" class="img-fluid rounded shadow gallery-thumb" alt="XV 5" data-gallery="xv" data-index="4"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv6.jpg" class="img-fluid rounded shadow gallery-thumb" alt="XV 6" data-gallery="xv" data-index="5"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv7.jpg" class="img-fluid rounded shadow gallery-thumb" alt="XV 7" data-gallery="xv" data-index="6"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv8.jpg" class="img-fluid rounded shadow gallery-thumb" alt="XV 8" data-gallery="xv" data-index="7"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv9.JPG" class="img-fluid rounded shadow gallery-thumb" alt="XV 9" data-gallery="xv" data-index="8"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/xv/xv10.JPG" class="img-fluid rounded shadow gallery-thumb" alt="XV 10" data-gallery="xv" data-index="9"></div>
+        </div>
+      </div>
+      <!-- Galería Bautizos -->
+      <div class="tab-pane fade" id="bautizos">
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo1.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 1" data-gallery="bautizos" data-index="0"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo2.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 2" data-gallery="bautizos" data-index="1"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo3.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 3" data-gallery="bautizos" data-index="2"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo4.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 4" data-gallery="bautizos" data-index="3"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo5.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 5" data-gallery="bautizos" data-index="4"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo6.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 6" data-gallery="bautizos" data-index="5"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo7.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 7" data-gallery="bautizos" data-index="6"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo8.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 8" data-gallery="bautizos" data-index="7"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo9.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 9" data-gallery="bautizos" data-index="8"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo10.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 10" data-gallery="bautizos" data-index="9"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo11.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 11" data-gallery="bautizos" data-index="10"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo12.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 12" data-gallery="bautizos" data-index="11"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo13.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 13" data-gallery="bautizos" data-index="12"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo14.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 14" data-gallery="bautizos" data-index="13"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo15.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 15" data-gallery="bautizos" data-index="14"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo16.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 16" data-gallery="bautizos" data-index="15"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo17.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 17" data-gallery="bautizos" data-index="16"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo18.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 18" data-gallery="bautizos" data-index="17"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo19.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 19" data-gallery="bautizos" data-index="18"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/bautizo/bautizo20.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Bautizo 20" data-gallery="bautizos" data-index="19"></div>
+        </div>
+      </div>
+      <!-- Galería Presentaciones 3 años -->
+      <div class="tab-pane fade" id="presentaciones">
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 0" data-gallery="presentaciones" data-index="0"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre1.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 1" data-gallery="presentaciones" data-index="1"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre2.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 2" data-gallery="presentaciones" data-index="2"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre3.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 3" data-gallery="presentaciones" data-index="3"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre4.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 4" data-gallery="presentaciones" data-index="4"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre5.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 5" data-gallery="presentaciones" data-index="5"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre6.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 6" data-gallery="presentaciones" data-index="6"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre7.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 7" data-gallery="presentaciones" data-index="7"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre8.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 8" data-gallery="presentaciones" data-index="8"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre9.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 9" data-gallery="presentaciones" data-index="9"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre10.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 10" data-gallery="presentaciones" data-index="10"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre11.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 11" data-gallery="presentaciones" data-index="11"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre12.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 12" data-gallery="presentaciones" data-index="12"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/pre/pre13.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Presentación 13" data-gallery="presentaciones" data-index="13"></div>
+        </div>
+      </div>
+      <!-- Galería Primeras Comuniones -->
+      <div class="tab-pane fade" id="comuniones">
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 0" data-gallery="comuniones" data-index="0"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera1.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 1" data-gallery="comuniones" data-index="1"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera2.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 2" data-gallery="comuniones" data-index="2"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera3.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 3" data-gallery="comuniones" data-index="3"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera4.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 4" data-gallery="comuniones" data-index="4"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera5.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 5" data-gallery="comuniones" data-index="5"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera6.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 6" data-gallery="comuniones" data-index="6"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera7.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 7" data-gallery="comuniones" data-index="7"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera8.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 8" data-gallery="comuniones" data-index="8"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera9.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 9" data-gallery="comuniones" data-index="9"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera10.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 10" data-gallery="comuniones" data-index="10"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera11.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 11" data-gallery="comuniones" data-index="11"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera12.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 12" data-gallery="comuniones" data-index="12"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera13.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 13" data-gallery="comuniones" data-index="13"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera14.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 14" data-gallery="comuniones" data-index="14"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera15.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 15" data-gallery="comuniones" data-index="15"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera16.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 16" data-gallery="comuniones" data-index="16"></div>
+          <div class="col-6 col-md-4 col-lg-3"><img src="assets/img/primera/primera17.jpg" class="img-fluid rounded shadow gallery-thumb" alt="Comunión 17" data-gallery="comuniones" data-index="17"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de galería fullscreen -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-black text-center">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body d-flex align-items-center justify-content-center">
+          <button class="btn btn-light me-3" id="galleryPrev"><i class="bi bi-arrow-left"></i></button>
+          <img id="galleryImage" src="" class="img-fluid rounded shadow-lg" style="max-height:80vh; transition:all 0.5s;">
+          <button class="btn btn-light ms-3" id="galleryNext"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Bloquear acciones en imagen fullscreen
+    const galleryImage = document.getElementById('galleryImage');
+    if (galleryImage) {
+      galleryImage.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        mostrarAlertaDerechos();
+      });
+      galleryImage.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        mostrarAlertaDerechos();
+      });
+    }
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('galleryModal').classList.contains('show')) {
+        if (e.key === 'PrintScreen' || (e.ctrlKey && e.key.toLowerCase() === 'p')) {
+          e.preventDefault();
+          mostrarAlertaDerechos();
+        }
+      }
+    });
+  </script>
+
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Foto&VideoMX. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/galeria.js"></script>
+</body>
+</html>

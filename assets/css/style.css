@@ -1,0 +1,78 @@
+/* Estilos personalizados para Foto&VideoMX */
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #f8f9fa;
+}
+
+.navbar {
+  transition: box-shadow 0.3s;
+}
+.navbar .nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+.navbar .nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #0d6efd;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+.navbar .nav-link:hover {
+  color: #0d6efd;
+}
+
+.hero-section {
+  min-height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url('../img/hero.jpg') center/cover no-repeat;
+  color: #fff;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.animate-fade {
+  animation: fadeIn 1.2s ease;
+}
+.animate-btn {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.animate-btn:hover {
+  box-shadow: 0 4px 24px rgba(13,110,253,0.3);
+  transform: translateY(-2px) scale(1.05);
+}
+.animate-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.animate-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+footer a {
+  transition: color 0.3s, transform 0.3s;
+}
+footer a:hover {
+  color: #0d6efd;
+  transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+}

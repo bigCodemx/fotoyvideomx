@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrador - Foto&VideoMX</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Menú de navegación oculto para público -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top d-none" id="adminNav">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Foto&VideoMX Admin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#galerias">Galerías</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reseñas">Reseñas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#logout" id="logoutBtn">Salir</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login de administrador -->
+  <div class="container py-5" id="loginSection" style="margin-top:90px; max-width:400px;">
+    <h2 class="mb-4 text-center fw-bold">Acceso Administrador</h2>
+    <form class="card shadow p-4 animate-card" id="loginForm">
+      <div class="mb-3">
+        <label for="adminUser" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="adminUser" required>
+      </div>
+      <div class="mb-3">
+        <label for="adminPass" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="adminPass" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 animate-btn">Ingresar</button>
+    </form>
+  </div>
+
+  <!-- Panel de administración -->
+  <div class="container py-5 d-none" id="adminPanel" style="margin-top:90px;">
+    <h2 class="mb-4 text-center fw-bold">Panel de Administración</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card shadow animate-card">
+          <div class="card-body">
+            <h5 class="card-title">Subir nueva galería</h5>
+            <form id="uploadGalleryForm">
+              <div class="mb-3">
+                <label for="galleryCategory" class="form-label">Categoría</label>
+                <select class="form-select" id="galleryCategory" required>
+                  <option value="bodas">Bodas</option>
+                  <option value="xv">XV años</option>
+                  <option value="bautizos">Bautizos</option>
+                  <option value="presentaciones">Presentaciones 3 años</option>
+                  <option value="comuniones">Primeras Comuniones</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="galleryImages" class="form-label">Imágenes</label>
+                <input type="file" class="form-control" id="galleryImages" multiple accept="image/*" required>
+              </div>
+              <button type="submit" class="btn btn-success animate-btn">Subir Galería</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card shadow animate-card">
+          <div class="card-body">
+            <h5 class="card-title">Eliminar galería existente</h5>
+            <form id="deleteGalleryForm">
+              <div class="mb-3">
+                <label for="deleteGalleryCategory" class="form-label">Categoría</label>
+                <select class="form-select" id="deleteGalleryCategory" required>
+                  <option value="bodas">Bodas</option>
+                  <option value="xv">XV años</option>
+                  <option value="bautizos">Bautizos</option>
+                  <option value="presentaciones">Presentaciones 3 años</option>
+                  <option value="comuniones">Primeras Comuniones</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-danger animate-btn">Eliminar Galería</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 mb-4">
+        <div class="card shadow animate-card">
+          <div class="card-body">
+            <h5 class="card-title">Eliminar reseñas de clientes</h5>
+            <form id="deleteReviewForm">
+              <div class="mb-3">
+                <label for="reviewId" class="form-label">ID de reseña</label>
+                <input type="text" class="form-control" id="reviewId" required>
+              </div>
+              <button type="submit" class="btn btn-warning animate-btn">Eliminar Reseña</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Foto&VideoMX. Panel de administración.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Login simple (usuario: admin, contraseña: 1234)
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+      if(user === 'admin' && pass === '1234') {
+        document.getElementById('loginSection').classList.add('d-none');
+        document.getElementById('adminPanel').classList.remove('d-none');
+        document.getElementById('adminNav').classList.remove('d-none');
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
+    });
+    // Botón salir
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('loginSection').classList.remove('d-none');
+      document.getElementById('adminPanel').classList.add('d-none');
+      document.getElementById('adminNav').classList.add('d-none');
+    });
+    // Subir galería (solo simulado)
+    document.getElementById('uploadGalleryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Galería subida correctamente (simulado)');
+    });
+    // Eliminar galería (solo simulado)
+    document.getElementById('deleteGalleryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Galería eliminada correctamente (simulado)');
+    });
+    // Eliminar reseña (solo simulado)
+    document.getElementById('deleteReviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Reseña eliminada correctamente (simulado)');
+    });
+  </script>
+</body>
+</html>

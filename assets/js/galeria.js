@@ -107,6 +107,35 @@ window.addEventListener('DOMContentLoaded', function() {
       mostrarImagen();
       const modal = new bootstrap.Modal(document.getElementById('galleryModal'));
       modal.show();
+
+      // Agregar listeners de swipe cada vez que se abre el modal
+      setTimeout(() => {
+        const galleryImage = document.getElementById('galleryImage');
+        let startX = 0;
+        let endX = 0;
+        if (galleryImage) {
+          galleryImage.ontouchstart = function(e) {
+            startX = e.touches[0].clientX;
+          };
+          galleryImage.ontouchmove = function(e) {
+            endX = e.touches[0].clientX;
+          };
+          galleryImage.ontouchend = function(e) {
+            if (startX && endX) {
+              const diff = startX - endX;
+              if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                  cambiarImagen(1);
+                } else {
+                  cambiarImagen(-1);
+                }
+              }
+            }
+            startX = 0;
+            endX = 0;
+          };
+        }
+      }, 300);
     });
   });
 

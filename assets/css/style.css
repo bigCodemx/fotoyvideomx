@@ -1,3 +1,9 @@
+@media (max-width: 768px) {
+  #galleryPrev,
+  #galleryNext {
+    display: none !important;
+  }
+}
 /* Estilos personalizados para Foto&VideoMX */
 body {
   font-family: 'Montserrat', Arial, sans-serif;

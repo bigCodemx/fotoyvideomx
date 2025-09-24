@@ -114,26 +114,29 @@ window.addEventListener('DOMContentLoaded', function() {
         let startX = 0;
         let endX = 0;
         if (galleryImage) {
-          galleryImage.ontouchstart = function(e) {
-            startX = e.touches[0].clientX;
-          };
-          galleryImage.ontouchmove = function(e) {
-            endX = e.touches[0].clientX;
-          };
-          galleryImage.ontouchend = function(e) {
-            if (startX && endX) {
-              const diff = startX - endX;
-              if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                  cambiarImagen(1);
-                } else {
-                  cambiarImagen(-1);
-                }
+          galleryImage.addEventListener('touchstart', onTouchStart);
+          galleryImage.addEventListener('touchmove', onTouchMove);
+          galleryImage.addEventListener('touchend', onTouchEnd);
+        }
+        function onTouchStart(e) {
+          startX = e.touches[0].clientX;
+        }
+        function onTouchMove(e) {
+          endX = e.touches[0].clientX;
+        }
+        function onTouchEnd(e) {
+          if (startX && endX) {
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+              if (diff > 0) {
+                cambiarImagen(1);
+              } else {
+                cambiarImagen(-1);
               }
             }
-            startX = 0;
-            endX = 0;
-          };
+          }
+          startX = 0;
+          endX = 0;
         }
       }, 300);
     });

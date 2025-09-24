@@ -21,7 +21,7 @@ const galerias = {
     'assets/img/boda/boda16.jpg',
     'assets/img/boda/boda17.jpg',
     'assets/img/boda/boda18.jpg',
-    'assets/img/boda/boda19.jpg'
+
   ],
   xv: [
     'assets/img/xv/xv1.JPG',

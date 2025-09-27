@@ -1,0 +1,29 @@
+-- SQL para inicializar la base de datos fotoyvideomx
+CREATE DATABASE IF NOT EXISTS fotoyvideomx DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE fotoyvideomx;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(200) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
+  code VARCHAR(50) NOT NULL UNIQUE,
+  email VARCHAR(200),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS archivos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cliente_id INT NOT NULL,
+  filename VARCHAR(500) NOT NULL,
+  original_name VARCHAR(500),
+  mimetype VARCHAR(200),
+  size BIGINT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
+);

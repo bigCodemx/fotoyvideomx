@@ -1,0 +1,4 @@
+body { background: #f8f9fa; }
+.card { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+#gallery img, #gallery video { max-width: 100%; height: auto; border-radius: 6px; }
+.gallery-item { margin-bottom: 1rem; }
